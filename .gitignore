@@ -1,4 +1,7 @@
-firstscrape.csv
-startercode/
-canada_pravda_scrape1.py
+# firstscrape.csv
+# startercode/
+# canada_pravda_scrape1.py
 chromedriver.exe
+db.py
+article.db
+scraped_data.json
