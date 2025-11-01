@@ -5,7 +5,7 @@ import csv
 #.\pravda\Scripts\Activate.ps1
 
 # source saves all the html elements of the webiste 
-source = requests.get('https://news-pravda.com/world/2025/10/16/1779190.html').text
+source = requests.get('https://news-pravda.com/world/2025/10/29/1816959.html').text
 
 #https://canada.news-pravda.com/russia/2025/10/15/28473.html
 #https://news-pravda.com/world/2025/10/16/1779190.html
@@ -42,6 +42,16 @@ print(paragraph, end="\n\n")
 
 source = article.find('div',class_='article__source').text
 print(source)
+
+
+source_span = article.find('span', class_='article-meta__item source-link')
+if source_span:
+    source_url = source_span.get('data-source-url')
+    source_name = source_span.get_text(strip=True)
+else:
+    source_url = None
+    source_name = None 
+
 
 # print(article.prettify())
 csv_writer.writerow([dates,title,paragraph,source])
